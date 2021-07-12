@@ -1,0 +1,20 @@
+.main-header {
+    background-color: #273451;
+}
+.nav-item {
+    color: #FFFFFFF;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #273451;
+    color: white;
+    text-align: center;
+    height:60px;
+}
+
+#body{
+    padding-bottom:60px;
+}
