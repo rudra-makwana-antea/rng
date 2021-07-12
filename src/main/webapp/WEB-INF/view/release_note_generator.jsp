@@ -33,7 +33,6 @@
                         <select class="form-control" id="project" name="project" required>
                             <option>BBox</option>
                             <option>IM</option>
-                            <option>Demo Proect</option>
                         </select>
                     </td>
                 </tr>

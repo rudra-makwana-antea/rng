@@ -38,7 +38,7 @@ public class ReleaseNoteHelper {
         if (issues.isEmpty()) {
             issues = saveIssuesToDB(project, version);
         }
-        String html = templatePreviewer.getPreviewByIssues(template, issues);
+        String html = issues.isEmpty() ? "<h3>No issues found</h3>" : templatePreviewer.getPreviewByIssues(template, issues);
         return html;
     }
 
