@@ -5,8 +5,8 @@
     <li class="breadcrumb-item active" aria-current="page">Release Note Generator</li>
   </ol>
 </nav>
-<div class="modal" id="modal">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+<div class="modal bd-example-modal-lg" id="modal">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <span class="close" id="closeModal">  &times;</span>
             <div class="modal-body" id="modalBody">
