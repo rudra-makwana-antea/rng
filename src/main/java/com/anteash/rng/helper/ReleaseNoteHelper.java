@@ -70,11 +70,7 @@ public class ReleaseNoteHelper {
                 } else if (obj.getString("name").equalsIgnoreCase("Ticket")) { //For BBox Project
                     issue.setURL(obj.get("value").toString().equalsIgnoreCase("null") ? "" : String.valueOf(obj.get("value")));
                 } else if (obj.getString("name").equalsIgnoreCase("Requires Release Notes")) { //For IM project && English release notes
-                    String releaseNote = issue.getReleaseNote().isEmpty() ? "" : issue.getReleaseNote() + " \n";
-                    issue.setReleaseNote(releaseNote + obj.getJSONObject("value").getString("value"));
-                } else if (obj.getString("name").equalsIgnoreCase("Richiede Release Notes")) { //For IM project && Italian release notes
-                    String releaseNote = issue.getReleaseNote().isEmpty() ? "" : issue.getReleaseNote() + " \n";
-                    issue.setReleaseNote(releaseNote + obj.getJSONObject("value").getString("value"));
+                    issue.setReleaseNote(obj.getJSONObject("value").getString("value"));
                 } else if (obj.getString("name").equalsIgnoreCase("URL Ticket")) { //For IM project
                     issue.setURL(obj.get("value").toString().equalsIgnoreCase("null") ? "" : String.valueOf(obj.get("value")));
                 }
