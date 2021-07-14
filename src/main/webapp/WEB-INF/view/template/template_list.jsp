@@ -21,6 +21,9 @@
                             <td scope="row"><b>${template.name}</b></td>
                             <td>
                                 <input type="hidden" name="templateName" value="${template.name}">
+                                <button type="submit" class="btn btn-primary" formaction="/template/edit">Edit</button>
+                            </td>
+                            <td>
                                 <button type="submit" class="btn btn-secondary" formaction="/template/preview">Preview</button>
                             </td>
                             <td>

@@ -26,6 +26,10 @@ public class TemplateService {
         return templateRepository.findByName(name);
     }
 
+    public void updateTemplate(Template template) {
+        templateRepository.save(template);
+    }
+
     public void saveTemplate(Template template) {
         templateRepository.save(template);
     }

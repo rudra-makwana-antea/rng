@@ -55,7 +55,7 @@ public class TemplateController {
 
     @PostMapping("/template")
     public ModelAndView saveTemplate(@Valid @ModelAttribute(name = "template") Template template, Model model) {
-        templateService.saveTemplate(template);
+        templateService.updateTemplate(template);
         return templateManagementView(model);
     }
 
@@ -63,5 +63,13 @@ public class TemplateController {
     public ModelAndView deleteTemplate(@RequestParam String templateName, Model model) {
         model.addAttribute("ACTION_MESSAGE", templateService.deleteTemplate(templateName));
         return templateManagementView(model);
+    }
+
+    @GetMapping("/template/edit")
+    public ModelAndView editTemplate(@RequestParam(name = "templateName") String templateName, Model model) {
+        Template template = templateService.getTempalteByName(templateName);
+        model.addAttribute("pageName", TEMPLATE_MANAGEMENT);
+        model.addAttribute("pagePartName", TEMPLATE_CREATION);
+        return new ModelAndView(TEMPLATE_MANAGEMENT_VIEW_JSP, "template", template);
     }
 }

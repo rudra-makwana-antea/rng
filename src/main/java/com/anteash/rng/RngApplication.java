@@ -8,13 +8,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class RngApplication extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(RngApplication.class);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RngApplication.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(RngApplication.class, args);
-	}
-
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(RngApplication.class);
+    }
 }

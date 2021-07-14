@@ -13,8 +13,9 @@
             <form:input type="text" class="form-control" id="name" path="name"/>
         </div>
         <div class="form-group">
+            <form:hidden class="form-control" id="templateId" path="id" rows="3"></form:hidden>
             <label for="templateHeader">Header</label>
-            <textarea class="form-control" id="templateHeader" aria-describedby="headerHelp" rows="3" path="header"></textarea>
+            <form:textarea class="form-control" id="templateHeader" path="header" aria-describedby="headerHelp" rows="3"></form:textarea>
             <small id="headerHelp" class="form-text text-muted">Appears at the start of the release notes.</small>
         </div>
         <div class="form-group">

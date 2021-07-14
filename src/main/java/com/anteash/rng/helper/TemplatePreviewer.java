@@ -60,10 +60,10 @@ public class TemplatePreviewer {
         String issueTemplate = template.getIssue();
 
         for (Issue issue : issues) {
-            result = result + "&#13" + issueValueReplacer(issueTemplate, issue);
+            result = result + "&#10" + issueValueReplacer(issueTemplate, issue);
         }
 
-        result = result + "&#13" + template.getFooter();
+        result = result + "&#10" + template.getFooter();
 
         return result;
     }

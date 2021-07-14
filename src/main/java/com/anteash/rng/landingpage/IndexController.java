@@ -67,6 +67,6 @@ public class IndexController {
     @ResponseBody
     public String getFile(@RequestParam(name = "projectVersion") String projectVersion,
             @RequestParam(name = "selectedTemplate") String templateName) {
-        return fileDownloader.createFile(templateName, projectVersion);
+        return fileDownloader.createHtmlCode(templateName, projectVersion);
     }
 }

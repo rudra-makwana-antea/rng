@@ -15,7 +15,7 @@ public class FileDownloader {
     @Autowired
     TemplatePreviewer templatePreviewer;
 
-    public String createFile(String template, String projectVersion) {
+    public String createHtmlCode(String template, String projectVersion) {
         String htmlCode = templatePreviewer.getPreview(template, projectVersion);
         htmlCode = htmlCode.replace("<","&#60");
         htmlCode = htmlCode.replace(">", "&#62");

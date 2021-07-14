@@ -7,20 +7,37 @@
 <div class="container">
     <h2 style="text-align: center; padding-bottom: 5px;">Generated Release Notes</h2>
 </div>
-<div  id="message" style="display: none; width: 25%; text-align: center;"
+<div  id="message" style="display: none; width: 25%; text-align: center; margin-top: 2px"
     class="alert alert-success container" role="alert">
-    <p>Link copied</p>
 </div>
 <div class="modal" id="modal">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content">
-            <span class="close" id="closeModal">  &times;</span>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalTitle"></h4>
+                <button id="closeModal" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div  id="codeCopy" style="display: none;"
+                class="alert alert-success container" role="alert">
+                <p>Code copied</p>
+            </div>
             <div class="modal-body" id="modalBody">
+            </div>
+            <div class="modal-footer" style="display: none;" id="modalFooter">
+                <button type="button" class="btn btn-success" id="copyHtmlCode">Copy</button>
             </div>
             <script>
             $('#closeModal').click(function() {
                 $('#modalBody').empty();
                 modal.style.display = "none";
+                var modalFooter = document.getElementById("modalFooter");
+                modalFooter.style.display = "none";
+            });
+            $('#copyHtmlCode').click(function() {
+                navigator.clipboard.writeText($("#modalBody").text());
+                var box = document.getElementById("codeCopy");
+                box.style.display = "block";
+                $("#codeCopy").delay(3000).slideUp(300);
             });
             </script>
         </div>
@@ -69,6 +86,7 @@
                                     navigator.clipboard.writeText(copyUrl);
                                     var box = document.getElementById("message");
                                     box.style.display = "block";
+                                    $('#message').append("<p>Link Copied</p>")
                                     $("#message").delay(3000).slideUp(300);
                                 });
                                 $("#visual_${loop.index}").click(function(){
@@ -82,6 +100,7 @@
                                         modal.style.display = "block";
                                         $('#modalBody').append(data);
                                     });
+                                    $('#modalTitle').text("HTML View for "+document.getElementById("${projectVersion}").value);
                                 });
                                 $("#export_${loop.index}").click(function(){
                                     var BASE_URL = window.location.origin+"/export?";
@@ -92,8 +111,11 @@
                                     var span = document.getElementById("closeModal");
                                     $.get(exportUrl, function(data){
                                         modal.style.display = "block";
+                                        var modalFooter = document.getElementById("modalFooter");
+                                        modalFooter.style.display = "block";
                                         $('#modalBody').append(data);
                                     });
+                                    $('#modalTitle').text("HTML Code for "+document.getElementById("${projectVersion}").value);
                                 });
                                 $("#refetch_${loop.index}").click(function(){
                                     var BASE_URL = window.location.origin+"/refetch?";
@@ -104,6 +126,10 @@
                                     $.get(refetchUrl, function(data){
                                         if(data == "reloaded"){
                                             $("#refetch_${loop.index}").html("Refetch");
+                                            var box = document.getElementById("message");
+                                            box.style.display = "block";
+                                            $('#message').append("<p>Data refetched</p>")
+                                            $("#message").delay(3000).slideUp(300);
                                         }
                                     });
                                 });
